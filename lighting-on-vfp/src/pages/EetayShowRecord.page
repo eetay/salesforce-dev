@@ -1,12 +1,10 @@
-<apex:page >
+<apex:page standardController="Case">
     <apex:includeLightning />
-
     <div id="lightning" />
-
     <script>
         $Lightning.use("c:EetayLightningApp", function() {
           $Lightning.createComponent("c:EetayShowRecord",
-          { recordId : "Press Me!" },
+          { recordId : "{!Case.Id}" },
           "lightning",
           function(cmp) {
             // do some stuff

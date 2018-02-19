@@ -1,21 +1,20 @@
 <aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId">
 
+    <!--aura:attribute name="recordId" type="String"/-->
     <aura:attribute name="record" type="Object"/>
     <aura:attribute name="simpleRecord" type="Object"/>
     <aura:attribute name="recordError" type="String"/>
     <!--  recordId="{!v.recordId}" -->
     <force:recordData aura:id="recordLoader"
-      recordId="500B0000003CuLsIAK"
+      recordId="{!v.recordId}"
       layoutType="FULL"
       targetRecord="{!v.record}"
       targetFields="{!v.simpleRecord}"
       targetError="{!v.recordError}"
       recordUpdated="{!c.handleRecordUpdated}"
       />
-	<div aura:id="container" style="border:thick solid #0000FF">
-    The record:
-	</div>
-    <!--force:recordView recordId="500B0000003EO1mIAG" type="FULL" body="{!v.simpleRecord}"/-->
+    The record:{!v.recordId}
+    <div aura:id="container" style="border:thick solid #0000FF"/>
     <!-- Display a header with details about the record -->
     <div class="slds-page-header" role="banner">
         <p class="slds-text-heading_label">{!v.simpleRecord.Name}</p>
