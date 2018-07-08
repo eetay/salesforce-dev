@@ -9,6 +9,11 @@ SF_PASS="my-password"
 SF_TOKEN="my-security-token"
 ```
 
+## useful-classes
+### EmailTemplateUtils
+* render email template to string
+* merge merge-fields into a 'template' contained in a string
+
 ## lighting-on-vfp
 Use a lightning component to display a record on a Visualforce Page
 Deploy: utils/deploy

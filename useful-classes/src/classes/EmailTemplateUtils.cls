@@ -1,4 +1,4 @@
-public class EmailTemplateUtils {
+public with sharing class EmailTemplateUtils {
     public static String processToString(String templateId, Id mergeObjectId) { 
         // based on https://salesforce.stackexchange.com/questions/13/using-apex-to-assemble-html-letterhead-emails/8745#8745
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
