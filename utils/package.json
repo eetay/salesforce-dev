@@ -1,0 +1,7 @@
+{
+  "name": "x",
+  "version": "1.0.0",
+  "dependencies": {
+    "jsforce-metadata-tools": "1.3.0"
+  }
+}
