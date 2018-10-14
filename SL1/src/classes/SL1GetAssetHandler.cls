@@ -7,7 +7,7 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
     public SL1GetAssetHandler(SL1Job__c job) {
         this.job = job;
     }
-    public void handle(Map<String, Object> json1) {
+    public void handle(Map<String, Object> json1, SL1Connection connection) {
         this.job.Result__c = (String)json1.get('ip');
     }
 }

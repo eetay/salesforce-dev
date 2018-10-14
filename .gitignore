@@ -1,3 +1,5 @@
 utils/credentials
 utils/node_modules
 utils/yarn.lock
+deploy.log
+retrievedPackage
