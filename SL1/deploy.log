@@ -1,0 +1,20 @@
+Logged in as: eetay.natan+preview.admin-vinn@force.com
+Deploying to server...
+
+Deploy Succeeded.
+
+Id: 0AfB000000LlzGVKAZ
+Status: Succeeded
+Success: true
+Done: true
+Number Component Errors; 0
+Number Components Deployed: 2
+Number Components Total: 2
+Number Test Errors; 0
+Number Tests Completed: 0
+Number Tests Total: 0
+
+Successes:
+ - (M) src/classes/SL1Connection.cls [ApexClass]
+ - (M) src/package.xml
+ - (~) src/remoteSiteSettings/SL1.remoteSite [RemoteSiteSetting]
