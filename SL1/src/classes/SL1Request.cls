@@ -1,6 +1,6 @@
 public class SL1Request {
     public interface Handler {
-       void handle(Map<String,Object> json, SL1Connection connection);
+       void handle(Map<String,Object> json, SL1Connection connection, SL1Request request);
     }
     final public Map<String,Object> params;
     final public String path;

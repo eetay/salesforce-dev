@@ -6,7 +6,7 @@ public class SL1ListResourceHandler implements SL1Request.Handler {
         return guid;
     }
 
-    public void handle(Map<String,Object> json, SL1Connection connection) {
+    public void handle(Map<String,Object> json, SL1Connection connection, SL1Request request) {
         final String batchId = generateGUID();
         List<SL1Job__c> jobList = new List<SL1Job__c>();
         for (Object o: (List<Object>)json.get('result_set')) {

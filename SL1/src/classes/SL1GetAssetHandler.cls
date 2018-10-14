@@ -9,11 +9,12 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
     public SL1GetAssetHandler(SL1Job__c job) {
         this.job = job;
     }
-    public void handle(Map<String, Object> json1, SL1Connection connection) {
+    public void handle(Map<String, Object> json1, SL1Connection connection, SL1Request request) {
         Map<String, Object> agentPost = new Map<String, Object>{
             'body' => new Map<String, Object>{
                 'Hardware' => new Map<String, Object>{
                     'data' => new Map<String, Object>{
+                        'id' => request.path,
                         'external_ip' => (String)json1.get('ip'),
                         'name' => (String)json1.get('name'),
                         'object_hash' => (String)json1.get('inf_hash')

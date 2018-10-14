@@ -9,7 +9,7 @@ public without sharing class SL1Connection {
   }
 
   public void jsonCallout(SL1Request request) {
-    request.handler.handle((Map<String, Object>)JSON.deserializeUntyped(basicAuthCallout(request).getBody()), this);
+    request.handler.handle((Map<String, Object>)JSON.deserializeUntyped(basicAuthCallout(request).getBody()), this, request);
   }
 
   public HTTPResponse basicAuthCallout(SL1Request request) {
