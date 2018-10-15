@@ -6,6 +6,7 @@
     <members>SL1JobBatcher</members>
     <members>SL1ListResourceHandler</members>
     <members>SL1Request</members>
+    <members>SL1Test</members>
     <name>ApexClass</name>
   </types>
   <types>

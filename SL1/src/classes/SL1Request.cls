@@ -5,10 +5,13 @@ public class SL1Request {
     final public Map<String,Object> params;
     final public String path;
     final public Handler handler;
-    public SL1Request(String path, Handler handler) {
-        this.path = path;
+    final public SL1Job__c job;
+
+    public SL1Request(SL1Job__c job, Handler handler) {
+        this.path = job.Path__c;
         this.handler = handler;
         this.params = new Map<String,Object>();
+        this.job = job;
     }
     public String pathWithQuery() {
         String query = '';

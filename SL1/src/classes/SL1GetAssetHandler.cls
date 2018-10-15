@@ -3,12 +3,8 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
         'ip' => 'ip',
         'name' => 'name'
     };
-        
 
-    final public SL1Job__c job;
-    public SL1GetAssetHandler(SL1Job__c job) {
-        this.job = job;
-    }
+
     public void handle(Map<String, Object> json1, SL1Connection connection, SL1Request request) {
         Map<String, Object> agentPost = new Map<String, Object>{
             'body' => new Map<String, Object>{
@@ -22,13 +18,13 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
                 }
             }
         };
-        this.job.Result__c = JSON.serialize(agentPost);
+        request.job.Result__c = JSON.serialize(agentPost);
     }
 }
 
 
 /*
-example json:
+example json from SL1:
 {
    name: 'WIN-OT0BJUSQFL8.demolab.local',
    ip: '172.16.12.210',

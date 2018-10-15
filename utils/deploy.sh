@@ -8,8 +8,10 @@ else
 fi
 
 SF_PACKAGE=`pwd -P`/src
-pushd `dirname $0`
+MYPATH=`(readlink $0 || echo $0)`
+pushd `dirname $MYPATH`
 MYDIR=`pwd -P`
+echo "XXX $MYDIR"
 JSFORCE_DEPLOY=`which jsforce-deploy`
 if [ ! -f "$JSFORCE_DEPLOY" ]; then
   JSFORCE_DEPLOY=$MYDIR/node_modules/jsforce-metadata-tools/bin/jsforce-deploy
