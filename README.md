@@ -20,6 +20,17 @@ SF_TOKEN="my-security-token"
 
 Application which integrates [SamanageCMDB 4 Salesforce](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N300000016Yr6EAE) and [ScienseLogic SL1](https://sciencelogic.com/sl1/platform)
 
+Execute one refresh cycle:
+```java
+SL1Test.refreshDevices('SL1user', 'SL1password', 'last-refresh-date-unix-time');
+```
+
+deploy: 
+
+```bash
+./deploy.sh
+```
+
 # useful-classes
 
 Some standalone useful example classes:

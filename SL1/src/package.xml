@@ -11,6 +11,7 @@
   </types>
   <types>
     <members>SL1Job__c</members>
+    <members>SL1Settings__c</members>
     <name>CustomObject</name>
   </types>
   <types>
