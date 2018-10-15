@@ -6,10 +6,10 @@ public class SL1ListResourceHandler implements SL1Request.Handler {
             String uri = (String)(((Map<String, Object>)o).get('URI'));
             SL1Job__c j = new SL1Job__c();
             j.Path__c = uri;
+            j.State__c = 'Pending';
             j.BatchId__c = batchId;
             jobList.add(j);
         }
         insert(jobList);
-        Database.executeBatch(new SL1JobBatcher(batchId, connection), 5);
     }
 }

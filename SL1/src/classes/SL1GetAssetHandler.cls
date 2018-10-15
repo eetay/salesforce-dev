@@ -26,6 +26,15 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
             }
         };
         request.job.Result__c = JSON.serialize(agentPost);
+        request.job.State__c = 'Completed';
+        /*
+        objectsToInsert.add(
+            new SamanageCMDB__AgentPost__c(
+                SamanageCMDB__CustomExtIdField__c = request.path,
+                SamanageCMDB__JsonData__c = JSON.serialize(agentPost)
+            )
+        );
+        */
         objectsToUpdate.add(request.job);
     }
 }

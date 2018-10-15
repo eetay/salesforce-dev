@@ -8,9 +8,11 @@ public without sharing class SL1Test {
 
   public static void refreshDevices(String username, String password, String since) {
     SL1Connection sl1 = new SL1Connection('https://sl1.samanage.com', username, password);
-    SL1Request r = new SL1Request(new SL1Job__c(Path__c = '/api/device', BatchId__c = generateGUID()), new SL1ListResourceHandler());
+    String batchId = generateGUID();
+    SL1Request r = new SL1Request(new SL1Job__c(Path__c = '/api/device', BatchId__c = batchId), new SL1ListResourceHandler());
     r.params.put('limit', 1000);
     if (since != null) r.params.put('filter.last_poll.min', since);
     sl1.jsonCallout(r);
+    Database.executeBatch(new SL1JobBatcher(batchId, sl1), 5);
   }
 }
