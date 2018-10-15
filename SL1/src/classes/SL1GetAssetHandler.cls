@@ -4,6 +4,13 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
         'name' => 'name'
     };
 
+    final public List<SObject> objectsToUpdate;
+    final public List<SObject> objectsToInsert;
+
+    public SL1GetAssetHandler(List<SObject> objectsToUpdate, List<SObject> objectsToInsert) {
+        this.objectsToUpdate = objectsToUpdate;
+        this.objectsToInsert = objectsToInsert;
+    }
 
     public void handle(Map<String, Object> json1, SL1Connection connection, SL1Request request) {
         Map<String, Object> agentPost = new Map<String, Object>{
@@ -19,6 +26,7 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
             }
         };
         request.job.Result__c = JSON.serialize(agentPost);
+        objectsToUpdate.add(request.job);
     }
 }
 

@@ -7,7 +7,8 @@ else
 fi
 
 SF_PACKAGE=`pwd -P`/src
-pushd `dirname $0`
+MYPATH=`readlink $0 || echo $0`
+pushd `dirname $MYPATH`
 MYDIR=`pwd -P`
 JSFORCE_RETRIEVE=`which jsforce-retrieve`
 if [ ! -f "$JSFORCE_RETRIEVE" ]; then

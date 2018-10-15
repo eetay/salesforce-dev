@@ -6,15 +6,20 @@ public without sharing class SL1JobBatcher implements Database.Batchable<sObject
         this.batchId = batchId;
         this.sl1 = sl1;
     }
+
     public void execute(Database.BatchableContext bc, List<SL1Job__c> scope) {
+        List<SObject> objectsToUpdate = new List<SObject>();
+        List<SObject> objectsToInsert = new List<SObject>();
         for (SL1Job__c job: scope) {
-            this.sl1.jsonCallout( new SL1Request(job, new SL1GetAssetHandler()) );
+            this.sl1.jsonCallout( new SL1Request(job, new SL1GetAssetHandler(objectsToUpdate, objectsToInsert)) );
         }
-        update scope;
+        if (objectsToUpdate.size()>0) update objectsToUpdate;
     }
+
     public Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator([SELECT Id, Path__c, Result__c FROM SL1Job__c WHERE BatchId__c = :batchId ]);
     }
+
     public void finish(Database.BatchableContext bc) {
     }
 }
