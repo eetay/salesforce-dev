@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>
     <members>SL1Connection</members>
+    <members>SL1ConnectionTest</members>
     <members>SL1GetAssetHandler</members>
     <members>SL1JobBatcher</members>
     <members>SL1ListResourceHandler</members>

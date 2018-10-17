@@ -16,25 +16,29 @@ public class SL1GetAssetHandler implements SL1Request.Handler  {
         Map<String, Object> agentPost = new Map<String, Object>{
             'body' => new Map<String, Object>{
                 'Hardware' => new Map<String, Object>{
-                    'data' => new Map<String, Object>{
-                        'id' => request.path,
-                        'external_ip' => (String)json1.get('ip'),
-                        'name' => (String)json1.get('name'),
-                        'object_hash' => (String)json1.get('inf_hash')
+                    'metadata' => new Map<String, Object>{
+                        'data_hash' => '213123123123'
+                    },
+                    'data' => new List<Object>{
+                        new Map<String, Object>{
+                            'id' => request.path,
+                            'external_ip' => (String)json1.get('ip'),
+                            'name' => (String)json1.get('name'),
+                            'object_hash' => (String)json1.get('inf_hash')
+                        }
                     }
                 }
             }
         };
         request.job.Result__c = JSON.serialize(agentPost);
         request.job.State__c = 'Completed';
-        /*
         objectsToInsert.add(
             new SamanageCMDB__AgentPost__c(
+                Name = 'Hardware',
                 SamanageCMDB__CustomExtIdField__c = request.path,
                 SamanageCMDB__JsonData__c = JSON.serialize(agentPost)
             )
         );
-        */
         objectsToUpdate.add(request.job);
     }
 }
